@@ -4,7 +4,15 @@
     Layout = "_Layout";
 }
 
-<h2>Add</h2>
+
+<div class="row no-gutters">
+    <div class="col-auto mr-auto">
+        <h2>Add</h2>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-link" asp-area="" asp-controller="Sample" asp-action="Index">Back to Samples</a>
+    </div>
+</div>
 
 @using (Html.BeginForm("Add", "Sample", FormMethod.Post))
 {
@@ -16,9 +24,7 @@
         @Html.ValidationMessageFor(x => x.Title, null, new {@class = "invalid-feedback d-block"})
     </div>
 
-    <button class="btn btn-xs btn-primary" type="submit">Add</button>
+    <button class="btn btn-xs btn-primary" type="submit">Submit</button>
 }
-
-<a class="btn btn-link pl-0" asp-area="" asp-controller="Sample" asp-action="Index">Back to Samples</a>
 
 <script src="~/bundles/js/jquery-val.js" asp-append-version="true"></script>
