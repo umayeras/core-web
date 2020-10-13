@@ -35,6 +35,7 @@ namespace WebApp
                 app.UseHsts();
             }
 
+            app.UseSecurityMiddleware();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();

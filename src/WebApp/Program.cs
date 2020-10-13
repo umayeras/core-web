@@ -79,7 +79,14 @@ namespace WebApp
                     logging.SetMinimumLevel(LogLevel.Information);
                 })
                 .UseSerilog()
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.ConfigureKestrel(serverOptions =>
+                    {
+                        serverOptions.AddServerHeader = false;
+                    });
+                    webBuilder.UseStartup<Startup>();
+                });
 
         #endregion
     }
