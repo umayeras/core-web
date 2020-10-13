@@ -4,19 +4,37 @@
     Layout = "_Layout";
 }
 
-<h2>Sample List</h2>
+<div class="row no-gutters">
+    <div class="col-auto mr-auto">
+        <h2>Sample List</h2>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-xs btn-primary mb-2" asp-area="" asp-controller="Sample" asp-action="Add">Add New</a>
+    </div>
+</div>
 
 <ul class="list-group list-group-flush mt-2">
-    @foreach (var sample in Model)
-    {
-        <li class="list-group-item d-flex justify-content-between align-items-center pl-0">
-            <div class="container pl-0">
-                <div class="row">
-                    <div class="col-sm-10">
-                        @sample.Title
+    @{
+        if (Model.Any())
+        {
+            foreach (var sample in Model)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center pl-0">
+                    <div class="container pl-0">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                @sample.Title
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </li>
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center pl-0">
+                <p>No Sample found</p>
+            </li>
+        }
     }
 </ul>
