@@ -20,6 +20,7 @@ namespace WebApp
         {
             services.AddDatabaseContext(Configuration);
             services.AddDependencyResolvers();
+            services.AddFluentValidation();
             services.AddControllersWithViews();
         }
 
